@@ -1,0 +1,49 @@
+{
+  "name": "unibook-resource-catalogue",
+  "version": "1.0.0",
+  "description": "UniBook Resource Catalogue — Subsystem 2",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --forceExit --detectOpenHandles",
+    "test:coverage": "jest --coverage --forceExit --detectOpenHandles",
+    "test:nfr": "jest --testPathPattern=\"nfr\" --forceExit --detectOpenHandles --verbose",
+    "test:nfr:perf": "jest src/__tests__/nfr/nfr1-nfr5-performance.test.ts --forceExit --detectOpenHandles --verbose",
+    "test:nfr:security": "jest src/__tests__/nfr/nfr2-security.test.ts --forceExit --detectOpenHandles --verbose",
+    "test:nfr:maintain": "jest src/__tests__/nfr/nfr3-maintainability.test.ts --forceExit --detectOpenHandles --verbose",
+    "test:nfr:reliable": "jest src/__tests__/nfr/nfr4-reliability.test.ts --forceExit --detectOpenHandles --verbose",
+    "test:nfr:report": "bash scripts/run-nfr-tests.sh",
+    "db:migrate": "npx ts-node src/db/migrate.ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.12.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.11.6",
+    "@types/uuid": "^10.0.0",
+    "@types/ioredis": "^4.28.10",
+    "@types/jest": "^29.5.12",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.3",
+    "ts-node-dev": "^2.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
