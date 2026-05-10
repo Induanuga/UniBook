@@ -1,0 +1,45 @@
+{
+  "name": "unibook-iam-nfr-tests",
+  "version": "1.0.0",
+  "description": "NFR tests for UniBook IAM Subsystem (Subsystem 1)",
+  "type": "module",
+  "scripts": {
+    "test": "jest --forceExit --runInBand",
+    "test:nfr1": "jest nfr1 --forceExit --runInBand",
+    "test:nfr2": "jest nfr2 --forceExit --runInBand",
+    "test:nfr4": "jest nfr4 --forceExit --runInBand",
+    "test:nfr5": "jest nfr5 --forceExit --runInBand",
+    "test:all": "jest --forceExit --runInBand --verbose"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.0",
+    "typescript": "^5.5.2"
+  },
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "testEnvironment": "node",
+    "extensionsToTreatAsEsm": [".ts"],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true,
+          "tsconfig": {
+            "module": "ESNext",
+            "moduleResolution": "bundler",
+            "esModuleInterop": true,
+            "allowSyntheticDefaultImports": true
+          }
+        }
+      ]
+    },
+    "testTimeout": 30000,
+    "testMatch": ["**/*.test.ts"]
+  }
+}
